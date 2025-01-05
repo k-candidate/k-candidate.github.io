@@ -24,44 +24,44 @@ My main takeaways from this book:
 
 The details that caught my attention:
 
-## Hash functions
+### Hash functions
 - The most widely adopted hash function is SHA-2, while the recommended hash function is SHA3 due to SHA-2’s lack of resistance to length-extension attacks.
 - For hashing passwords, Argon2 is state-of-the-art.
 
-## Message Authentication Codes
+### Message Authentication Codes
 - Use standardized functions like HMAC
 
-## Authenticated Encryption
+### Authenticated Encryption
 - To avoid misuse, best practice is to use AEAD (Authenticated Encryption with Associated Data) algorithms instead of constructing one from a symmetric encryption algorithm and a MAC.
 - The most widely adopted ones are AES-GCM and ChaCha20-Poly1305.
 - When it comes to disk encryption, Microsoft (Bitlocker) and Apple (FileVault) use AES-XTS, which is a non-ideal solution as it is unauthenticated and is not a wide-block cipher.
 
-## Asymmetric encryption
+### Asymmetric encryption
 - RSA PKCS#1 v1.5 is broken. Prefer v2.2.
 
-## Signatures
+### Signatures
 - Using elliptic curves is the way to go.
 
-## End-to-end encryption
+### End-to-end encryption
 - An alternative to PGP is saltpack.
 - The Signal protocol is what’s used by most messaging applications (WhatsApp, Facebook Messenger, Skype).
 
-## Cryptocurrency:
+### Cryptocurrency:
 - Bitcoin accounts are simply ECDSA key pairs, and a transaction is a signed message. It uses Merkle trees for block size compression and for transaction verification inclusion.
 - Zero-knowledge proofs (ZKPs) are used by many blockchain applications (Zcash, Coda)
 
-## Hardware cryptography
+### Hardware cryptography
 - HSMs (in AWS for example), TPMs (in all modern laptops), and TEE (extension of a CPU’s instruction set).
 
-## Post-Quantum Cryptography
+### Post-Quantum Cryptography
 - What to worry about:
   - Shor’s algorithm, which can efficiently solve the discrete logarithm problem and the factorization problem. It breaks most of today’s asymmetric cryptography.
   - Frovers’s algorithm, which can efficiently search for a key or value in a space of 1128 values, impacts most symmetric algorithms with 128-bit security. Boosting a symmetric algorithm’s parameters to provide 256-bit security is enough to thwart quantum attacks.
 - Consider upgrading all usage of symmetric cryptographic algorithms to use parameters that provide 256-bit security. For example, move from AES-128-GCM to AES-256-GCM, and from SHA-3-256 to SHA-3-512.
 - For hash based signatures, use XMSS and SPHINCS+.
 
-## Next generation crypto
+### Next generation crypto
 - Fully homomorphic encryption (FHE) for the cloud or a data processor.
 
-# Conclusion
+## Conclusion
 It is worth reading for anyone in the DevSecOps field.
