@@ -61,7 +61,7 @@ The details that caught my attention:
 - For hash based signatures, use XMSS and SPHINCS+.
 
 ### Next generation crypto
-- Fully homomorphic encryption (FHE) for the cloud or a data processor.
+- Fully homomorphic encryption (FHE) for the cloud or for a data processor.
 
 ## Conclusion
 It is worth reading for anyone in the DevSecOps field.
