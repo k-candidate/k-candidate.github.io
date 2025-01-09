@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Real-World Cryptography Book Takeaways"
+title: "Real-World Cryptography - Book Takeaways"
 date: 2024-11-23 00:00:00-0000
 categories: 
 ---
