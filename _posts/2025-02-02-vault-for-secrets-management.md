@@ -20,7 +20,8 @@ For our self-hosted and on-prem environment, we will go with Hashicorp's Vault.
 
 ## 3. Set up
 The setup is very similar to the one we used for previous components.  
-The code can be found here: [https://github.com/k-candidate/tf-vault](https://github.com/k-candidate/tf-vault).
+The code can be found here: [https://github.com/k-candidate/tf-vault](https://github.com/k-candidate/tf-vault).  
+The only hiccup I had to troubleshoot was persisting the data. That was due to the docker image's UID and GID: [https://github.com/hashicorp/vault/issues/20953](https://github.com/hashicorp/vault/issues/20953).
 
 ## 4. How to use
 The deployment is similar to other components we made. You can read previous posts for more details.
