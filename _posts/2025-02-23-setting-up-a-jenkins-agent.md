@@ -18,7 +18,27 @@ So that’s something to add to our Jenkins master image. See these 2 PRs:
 - [https://github.com/k-candidate/tf-jenkins-as-code/pull/10](https://github.com/k-candidate/tf-jenkins-as-code/pull/10)
 
 
+We also have to install the package `libvirt-dev` in the master as it is needed by the plugin. So that means modifying the Dockerfile for the image:
+- [https://github.com/k-candidate/tf-jenkins-as-code/pull/11](https://github.com/k-candidate/tf-jenkins-as-code/pull/11)
+- [https://github.com/k-candidate/tf-jenkins-as-code/pull/12](https://github.com/k-candidate/tf-jenkins-as-code/pull/12)
+
 Unfortunately, the libvirt-slave plugin does not allow using SSH keys, and therefore we have no other choice but to rely on the username/password. So, remember to enable password authentication in the `sshd_config` of the server where you have your hypervisor.
 
 The documentation of the plugin is simple and clear, so there’s no need to repeat that in here.  
-After setting up the cloud and the agent node itself, we’re ready to build pipelines!
+After setting up the cloud and the agent node itself, we’re ready to build pipelines.
+
+We can test the agent node being turned on and off automatically via a simple pipeline like this one:
+```
+pipeline {
+    agent {
+        label 'libvirt-agent'
+    }
+    stages {
+        stage ('Test') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
+```
