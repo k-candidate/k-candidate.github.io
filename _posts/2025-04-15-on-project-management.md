@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "On project management"
+title: "On Project Management"
 date: 2025-04-15 00:00:00-0000
 categories: 
 ---
