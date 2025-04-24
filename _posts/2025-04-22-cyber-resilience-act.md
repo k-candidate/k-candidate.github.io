@@ -1,0 +1,63 @@
+---
+layout: post
+title: "EU Cyber Resilience Act"
+date: 2025-04-22 00:00:00-0000
+categories: 
+---
+
+My notes:
+- Key provisions take effect in June 2026, with full enforcement in December 2027.
+- [https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act](https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act)
+- [https://eur-lex.europa.eu/eli/reg/2024/2847/oj](https://eur-lex.europa.eu/eli/reg/2024/2847/oj)
+- Regulates PDEs (Products with Digital Elements).
+- The use of standards is voluntary, but applying standards can provide evidence that the legal requirements are met. In some cases complying with a standard provides a presumption of conformity. 
+- Most software falls under the “Default” classification.
+- “Critical” software has the strictest conformity assessment procedure options.
+- [https://github.com/ossf/wg-globalcyberpolicy/blob/main/documents/CRA/checklists/OSS_Stewards_Obligations_Checklist.md](https://github.com/ossf/wg-globalcyberpolicy/blob/main/documents/CRA/checklists/OSS_Stewards_Obligations_Checklist.md)
+- An organization releasing OSS and directly monetizing it is considered a manufacturer even though they’re involved in developing open source software (OSS)
+- OSS steward’s responsibilities:
+  - Report on actively exploited vulnerabilities & severe incidents
+  - Cooperate with the market surveillance authorities to mitigate risks
+  - Put in place and document a cybersecurity policy that fosters development of a secure PDE, handles vulnerabilities, and fosters voluntary reporting of vulnerabilities
+- Manufacturer responsibilities:
+  -  Design, develop & produce per essential cybersecurity requirements in Annex I Part I 
+  - Assess cybersecurity risks and apply that information throughout the product lifecycle 
+  - Exercise due diligence when integrating third party components including open source software 
+  - Assess conformity with CRA requirements 
+  - Ensure the PDE has no known exploitable vulnerabilities 
+- Market surveillance authority: the organization designated by a member state government to ensure products comply with the CRA legislation and protect the public interest.
+- Requirements for PDEs:
+  - PDEs must protect confidentiality of data. 
+  - PDEs must protect the integrity of data, programs, and configuration data against unauthorized modifications, including unauthorized deletions.
+  - PDEs must protect availability of essential and basic functions, including providing measures against denial-of-service attacks.
+- PDEs must NOT have “known exploitable vulnerabilities”
+- [https://vulnerability.circl.lu/](https://vulnerability.circl.lu/)
+- More manufacturer responsibilities:
+  - Security updates must be provided free of charge. 
+  - Information for users must include the Internet address for the EU declaration of conformity. 
+  - Information for users must include a point of contact for reporting vulnerabilities and coordinated vulnerability disclosure policy. 
+  - When a manufacturer learns of a severe incident or an actively exploited vulnerability in PDE it manufactures, it must notify the designated CSIRT & ENISA, and impacted users in a timely manner
+- All of these may notify a designated CSIRT or ENISA about a vulnerability, cyber threat, or incident involving a given PDE:
+  - User of PDE
+  - Potential user of PDE
+  - Security researcher who has discovered a vulnerability
+  - Competing manufacturer
+- Conformity assessment:
+  - Software in the “default” category may undergo internal control (aka self-assessment)
+  - Critical software that is closed source cannot use internal control (aka self-assessment) for conformity assessment
+  - Critical software that is OSS can use internal control (aka self-assessment) but must also meet some additional criteria
+  - Manufacturers can release unfinished software without a full CRA conformity assessment, but it must have a risk assessment and comply to the extent possible with CRA.
+  - It’s important to perform a compliance assessment before attaching a CE mark (“conformité européenne") to a PDE. 
+  - In some cases, even if PDE complies with the CRA, actions can be required if there is a significant cybersecurity risk and risks to certain other areas. 
+- [https://ec.europa.eu/transparency/expert-groups-register/screen/expert-groups/consult?lang=en&groupID=3967](https://ec.europa.eu/transparency/expert-groups-register/screen/expert-groups/consult?lang=en&groupID=3967)
+- [https://eur-lex.europa.eu/legal-content/%20EN/TXT/?uri=CELEX%3A52022XC0629%2804%29](https://eur-lex.europa.eu/legal-content/%20EN/TXT/?uri=CELEX%3A52022XC0629%2804%29)
+- [https://webgate.ec.europa.eu/regdel/#/legislativeActs/1274?lang=en](https://webgate.ec.europa.eu/regdel/#/legislativeActs/1274?lang=en)
+- [https://cyberstand.eu/events/standardisation-cyber-resilience-act](https://cyberstand.eu/events/standardisation-cyber-resilience-act)
+- [https://www.bsi.bund.de/dok/TR-03183-en](https://www.bsi.bund.de/dok/TR-03183-en)
+- [https://www.bsi.bund.de/dok/TR-03185-en](https://www.bsi.bund.de/dok/TR-03185-en)
+- [https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/Technische-Richtlinien/technische-richtlinien_node.html](https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/Technische-Richtlinien/technische-richtlinien_node.html)
+- [https://archive.fosdem.org/2024/schedule/event/fosdem-2024-3683-the-regulators-are-coming-one-year-on/](https://archive.fosdem.org/2024/schedule/event/fosdem-2024-3683-the-regulators-are-coming-one-year-on/)
+- [https://github.com/orcwg/cra-hub/blob/main/faq.md](https://github.com/orcwg/cra-hub/blob/main/faq.md)
+- [https://openssf.org/public-policy/eu-cyber-resilience-act/](https://openssf.org/public-policy/eu-cyber-resilience-act/)
+- [https://github.com/ossf/wg-globalcyberpolicy/discussions](https://github.com/ossf/wg-globalcyberpolicy/discussions)
+- [https://github.com/ossf/wg-globalcyberpolicy/blob/main/documents/CRA/checklists/PSIRT_Obligations_Checklist.md](https://github.com/ossf/wg-globalcyberpolicy/blob/main/documents/CRA/checklists/PSIRT_Obligations_Checklist.md)
