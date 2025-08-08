@@ -95,4 +95,4 @@ Hi, Alice, your password is myS******23.
 ```
 
 As we can see, the f-string immediately evaluated to `"Hello ,Alice!"`, but the t-string created a `Template` object containing the statuc strings and interpolation expressions separately.  
-This means that we can iterate through and process these parts individually, which allows for safe substitution, censoring sensitive data, or just custom string transformation in general.
+This means that we can iterate through and process these parts individually, which allows for safe substitution, censoring sensitive data, or just custom string transformation in general. This can be useful for input sanitization to prevent SQL injection for example.
