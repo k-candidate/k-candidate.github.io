@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TIL - Python 3.14 and T-strings"
+title: "TIL - Python 3.14 and T-strings - PEP 750"
 date: 2025-08-02 00:00:00-0000
 categories: 
 ---
