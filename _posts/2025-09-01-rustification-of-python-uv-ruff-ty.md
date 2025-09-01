@@ -5,7 +5,9 @@ date: 2025-09-01 00:00:00-0000
 categories: 
 ---
 
-The changes that correspond to this post are in this PR: [https://github.com/k-candidate/selenium-book-search-slack-alerts/pull/4](https://github.com/k-candidate/selenium-book-search-slack-alerts/pull/4)
+The changes that correspond to this post are in these PRs: 
+- [https://github.com/k-candidate/selenium-book-search-slack-alerts/pull/4](https://github.com/k-candidate/selenium-book-search-slack-alerts/pull/4)
+- [https://github.com/k-candidate/selenium-book-search-slack-alerts/pull/5](https://github.com/k-candidate/selenium-book-search-slack-alerts/pull/5)
 
 ## Switch from pyenv and pip to uv
 In `~/.bashrc` and `~/.profile` comment out the lines:
@@ -113,7 +115,5 @@ We're working hard to make ty stable and feature-complete, but until then, expec
 So for now (August 2025), I will abstain from using it.
 
 ## Conclusion
-The speed is noticeable. But there are still some needed improvements.
-
-My changes can be seen in this PR: 
-[https://github.com/k-candidate/selenium-book-search-slack-alerts/pull/4](https://github.com/k-candidate/selenium-book-search-slack-alerts/pull/4).
+The speed is noticeable. But there are still some needed improvements.  
+However, I'll be using these tools for now. My changes can be seen in the PRs I mentioned at the top of the post.
