@@ -51,7 +51,8 @@ mkdir some_project
 cd some_project
 uv python pin 3.13 # Creates the .python-version file and installs the interpreter if needed
 uv init # creates pyproject.toml, README.md, .gitignore, and main.py
-# uv add some_package # adds some_package to pyproject.toml
+# uv add some_package # adds some_package to pyproject.toml and uv.lock
+# uv add some_package --optional dev # add some_package to the "dev" optional dependencies in pyproject.toml and uv.lock
 uv sync # creates the .venv directory, and installs the dependencies to that venv. But the venv is not activated! Creates the uv.lock file
 source .venv/bin/activate
 # write code

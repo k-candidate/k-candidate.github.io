@@ -25,7 +25,10 @@ categories:
 ## Mypy
 - Mypy is a static type checker for Python. It analyzes Python code to check type correctness based on type annotations, helping to catch bugs and improve code quality by enforcing type consistency before runtime.
 - Here’s their repo: [https://github.com/python/mypy](https://github.com/python/mypy)
-- To set in VSCode: [https://code.visualstudio.com/docs/python/linting#_choose-a-linter](https://code.visualstudio.com/docs/python/linting#_choose-a-linter) > [https://marketplace.visualstudio.com/items?itemName=ms-python.mypy-type-checker](https://marketplace.visualstudio.com/items?itemName=ms-python.mypy-type-checker). The extension ships with `mypy`.
+- To set in VSCode: [https://code.visualstudio.com/docs/python/linting#_choose-a-linter](https://code.visualstudio.com/docs/python/linting#_choose-a-linter) > [https://marketplace.visualstudio.com/items?itemName=ms-python.mypy-type-checker](https://marketplace.visualstudio.com/items?itemName=ms-python.mypy-type-checker). The extension ships with `mypy`. To make it take into account the mypy settings of `[tool.mypy]` in `pyproject.toml` we have to add this arg: `"--config-file=${workspaceFolder}/pyproject.toml"`
+
+![Mypy setting in VSCode]({{ site.baseurl }}/assets/images/mypy-setting-vscode.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
+
 - Here’s an example of what this tool can do for us: it warns us as we’re writing code that a `None` cannot be added to a `dict`: 
 
 ![Mypy in action]({{ site.baseurl }}/assets/images/mypy-01.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
