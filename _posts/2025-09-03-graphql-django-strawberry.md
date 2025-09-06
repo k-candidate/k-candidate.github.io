@@ -5,6 +5,8 @@ date: 2025-09-03 00:00:00-0000
 categories: 
 ---
 
+![GraphQL Django Strawberry logos]({{ site.baseurl }}/assets/images/graphql-django-strawberry-logos.png){:style="display:block; margin-left:auto; margin-right:auto; width:50.00%"}
+
 ## Starting with Django
 
 We will set up a customer database using Django and Strawberry to play around with GraphQL.
