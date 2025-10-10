@@ -117,6 +117,7 @@ In the screenshot we can see that from the sidecar (the big image with all the t
 - we are able to see the directories and files of the target container including the executable we made
 - we can use tools to troubleshoot anything (netcat for network troubleshooting as an example)
 
-So no troubleshooting limitations, 0 CVEs, smaller disk footprint, and quicker deployments. If at some point I encounter limitations, I'll share them in a new post or update this one.
-
 Notice that I used `uid` 65532 and `gid` 65532. Otherwise it would have not worked. Why? Because the basic laws have not been suspended: it's still Linux. 65532 is the `uid` and `gid` of the `nonroot` user in Google's Distroless images. Notice in the Dockerfile that I used the nonroot variant (tag) of the image.
+
+## Conclusion
+We can troubleshoot, we have 0 CVEs, a smaller disk footprint, and quicker deployments.
