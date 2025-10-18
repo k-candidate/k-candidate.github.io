@@ -57,7 +57,11 @@ Then there are `gcr.io/distroless/java`, `gcr.io/distroless/nodejs`, and `gcr.io
 
 What if we want to add some specific tool to these images?  
 We would have to copy them from some other image:  
-`COPY –from=some_other_image /path_to_tool /dest_of_tool`
+`COPY --from=some_other_image /path_to_tool /dest_of_tool`
+
+Here's an example I made for `curl`: [https://github.com/k-candidate/docker-static-curl](https://github.com/k-candidate/docker-static-curl). Image here: [https://hub.docker.com/r/kcandidate/static-curl/tags](https://hub.docker.com/r/kcandidate/static-curl/tags).  
+When we install `curl` via a package manager like `apt` or `apk`, it relies on some shared libraries. Hence the need for a static build. See [https://curl.se/docs/install.html#static-builds](https://curl.se/docs/install.html#static-builds).  
+`curl` can be necessary in containers because it is usually used for health checks. See [https://docs.aws.amazon.com/AmazonECS/latest/developerguide/healthcheck.html](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/healthcheck.html).
 
 Now that we have images without vulns but also without a shell (nor a package manager) running in production, how can we troubleshoot issues?
 
