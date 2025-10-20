@@ -69,7 +69,7 @@ Now that we have images without vulns but also without a shell (nor a package ma
 Containers are primarily built on 2 core Linux features: cgroups and namespaces. So we should be able to “take the troubleshooting tools and put them where the target app container is running”.
 
 Let’s make a simple container that starts a web server responding “hello world!”. Here's the `Dockerfile`:
-```
+```dockerfile
 FROM golang:alpine AS build
 WORKDIR /app
 
@@ -106,7 +106,7 @@ Let’s imagine that there’s some issue with our container and we need to trou
 We run `docker ps` to get the name of the container.
 
 Then we run 
-```
+```bash
 docker run --rm -it --user=<uid>:<gid> \
   --pid=container:<container_name> \
   --network=container:<container_name> \
@@ -123,5 +123,59 @@ In the screenshot we can see that from the sidecar (the big image with all the t
 
 Notice that I used `uid` 65532 and `gid` 65532. Otherwise it would have not worked. Why? Because the basic laws have not been suspended: it's still Linux. 65532 is the `uid` and `gid` of the `nonroot` user in Google's Distroless images. Notice in the Dockerfile that I used the nonroot variant (tag) of the image.
 
+Here's how the Dockerfile will look like with `curl` and `dumb-init`:
+
+```dockerfile
+# Build Go binary
+FROM golang:alpine AS build
+WORKDIR /app
+
+RUN cat << 'EOF' > main.go
+package main
+
+import "net/http"
+
+func main() {
+        http.HandleFunc("/", func(w http.ResponseWriter, _ *http.Request) {
+                w.Write([]byte("hello world!"))
+        })
+        http.ListenAndServe(":8080", nil)
+}
+EOF
+
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o server main.go
+
+# dumb-init binary
+FROM alpine AS dumb-init
+RUN apk add --no-cache dumb-init
+
+# curl binary
+FROM kcandidate/static-curl:latest AS curl
+
+# Distroless as runtime
+FROM gcr.io/distroless/static:nonroot
+WORKDIR /
+COPY --from=build /app/server /
+COPY --from=dumb-init /usr/bin/dumb-init /usr/bin/dumb-init
+COPY --from=curl /bin/curl /usr/bin/curl
+
+EXPOSE 8080
+USER nonroot
+
+ENTRYPOINT ["/usr/bin/dumb-init", "--"]
+CMD ["/server"]
+```
+
+We build it using `docker build -t test2:test2 .`.  
+We run it using `docker run -p 8080:8080 test2:test2`.
+
+![distroless with static curl and dumb-init]({{ site.baseurl }}/assets/images/vuln_fatigue_07.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
+
+We can see `dumb-init` now having pid 1, and `curl` works without having the shared libraries because it is statically compiled. The rest is the same.
+
 ## Conclusion
-We can troubleshoot, we have 0 CVEs, a smaller disk footprint, and quicker deployments.
+With Distroless images:
+- we can troubleshoot
+- we have 0 CVEs
+- we have a smaller disk footprint (smaller ECR footprint means less cost)
+- we have quicker deployments
