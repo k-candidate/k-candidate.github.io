@@ -173,6 +173,11 @@ We run it using `docker run -p 8080:8080 test2:test2`.
 
 We can see `dumb-init` now having pid 1, and `curl` works without having the shared libraries because it is statically compiled. The rest is the same.
 
+We can make a custom sidecar container with the tools we need for troubleshooting: [https://github.com/k-candidate/helvetic](https://github.com/k-candidate/helvetic).  
+Given that the default uid and gid for our custom sidecar container is 65532 (same as nonroot distroless), we no longer have to specify the `--user`:
+
+![helvetic]({{ site.baseurl }}/assets/images/vuln_fatigue_08.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
+
 ## Conclusion
 With Distroless images:
 - we can troubleshoot
