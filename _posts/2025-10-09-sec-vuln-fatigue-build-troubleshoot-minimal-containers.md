@@ -178,6 +178,10 @@ Given that the default uid and gid for our custom sidecar container is 65532 (sa
 
 ![helvetic]({{ site.baseurl }}/assets/images/vuln_fatigue_08.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
 
+There's also the possibility to use something like [https://github.com/lukaszlach/commando](https://github.com/lukaszlach/commando).
+
+What about Kubernetes (k8s)? We can use the exact same approach via Ephemeral Containers. See [https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/).
+
 ## Conclusion
 With Distroless images:
 - we can troubleshoot
