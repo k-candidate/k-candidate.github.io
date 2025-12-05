@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "TIL - pglogical"
-date: 2025-11-30 00:00:00-0000
+date: 2025-11-30 02:00:00-0000
 categories: 
 ---
 
