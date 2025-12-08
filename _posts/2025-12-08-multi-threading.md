@@ -21,13 +21,17 @@ However, we are waiting for the server to respond to our requests, so we are I/O
 
 We could use the `threading` module. But I am going with the newer `concurrent.futures` which is a modern interface to `threading` (and also `multiprocessing`).
 
+I wanted to know the resources I am working with in the public runner `ubuntu-latest`. It should handle 4 threads easily. See [https://github.blog/news-insights/product-news/github-hosted-runners-double-the-power-for-open-source/](https://github.blog/news-insights/product-news/github-hosted-runners-double-the-power-for-open-source/). I verified that the information in that post matches reality: 
+
+![resources of ubuntu-latest runner]({{ site.baseurl }}/assets/images/multithreading02.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
+
 You can find the change in this PR: [https://github.com/k-candidate/selenium-book-search-slack-alerts/pull/10](https://github.com/k-candidate/selenium-book-search-slack-alerts/pull/10)
 
 ## Results
 
 Here's the same GHA with multi-threading:
 
-![GHA with multi-threading]({{ site.baseurl }}/assets/images/multithreading02.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
+![GHA with multi-threading]({{ site.baseurl }}/assets/images/multithreading03.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
 
 **We went from 2m22s to 57s.**  
 **That's a 60% reduction!**
