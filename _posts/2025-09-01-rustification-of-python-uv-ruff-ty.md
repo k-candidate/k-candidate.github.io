@@ -35,6 +35,8 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 - A few useful commands:
   - To list all python interpreters: `uv python list` (similar to `pyenv versions`)
+  - To list all versions that can be installed: `uv python list --all-versions`. This depends on the uv version. See [this release](https://github.com/astral-sh/uv/releases/tag/0.9.16) for example. Hence the importance of updating uv.
+  - To update uv itself: `uv self update`
   - There’s no equivalent for `pyenv version`. You’d have to check `.python-version` or use `uv run python --version`
   - To pin a version locally: `uv python pin 3.13` (similar to `pyenv local 3.13`)
   - There’s no equivalent for `pyenv shell 3.13`. You’d have to use `uv run --python 3.13 CMD` to temporarily use that python version for a command.
@@ -65,6 +67,7 @@ Here’s the workflow when working on an existing project:
 # clone repo
 # cd repo
 uv venv
+# uv venv .venv2 # will create an env called .venv2
 source .venv/bin/activate
 # uv pip install -r requirements.txt # if requirements.txt
 # uv lock
@@ -72,6 +75,7 @@ uv sync # if the repo has a pyproject.toml but no uv.lock
 # uv sync --extra dev # to install also the optional dependencies “dev”
 # uv sync --locked # if the repo has a uv.lock with or without pyproject.toml
 # uv sync --locked --all-extras # install all optional dependencies
+# uv sync --active --locked --all-extras # if you are inside a venv not called ".venv". The --active is to target the active environment (meaning you already did the source .venv2/bin/activate)
 # uv sync --locked --extra dev # install dev optional dependencies
 ```
 
