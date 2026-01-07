@@ -16,7 +16,9 @@ As per [https://docs.astral.sh/uv/guides/integration/dependency-bots/](https://d
 
 >Dependabot has announced support for uv, but there are some use cases that are not yet working.
 
-The issue [https://github.com/astral-sh/uv/issues/2512](https://github.com/astral-sh/uv/issues/2512) remains open.
+These issues of dependabot with uv remain open: 
+- [https://github.com/astral-sh/uv/issues/2512](https://github.com/astral-sh/uv/issues/2512)
+- [https://github.com/dependabot/dependabot-core/issues/11913](https://github.com/dependabot/dependabot-core/issues/11913)
 
 Based on that, Renovate is the better choice for now.
 
