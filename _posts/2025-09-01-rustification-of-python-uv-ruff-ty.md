@@ -63,7 +63,7 @@ uv lock # lock dependencies to uv.lock file
 ```
 
 Here’s the workflow when working on an existing project:
-```
+```bash
 # clone repo
 # cd repo
 uv venv
@@ -77,6 +77,7 @@ uv sync # if the repo has a pyproject.toml but no uv.lock
 # uv sync --locked --all-extras # install all optional dependencies
 # uv sync --active --locked --all-extras # if you are inside a venv not called ".venv". The --active is to target the active environment (meaning you already did the source .venv2/bin/activate)
 # uv sync --locked --extra dev # install dev optional dependencies
+pre-commit install
 ```
 
 ## Ruff
