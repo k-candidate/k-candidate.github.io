@@ -27,6 +27,8 @@ url: "https://k-candidate.github.io" # the base hostname & protocol for your sit
 #twitter_username: jekyllrb
 github_username:  k-candidate
 
+future: true
+
 # Build settings
 theme: minima
 plugins:
