@@ -19,6 +19,7 @@ As per [https://docs.astral.sh/uv/guides/integration/dependency-bots/](https://d
 These issues of dependabot with uv remain open: 
 - [https://github.com/astral-sh/uv/issues/2512](https://github.com/astral-sh/uv/issues/2512)
 - [https://github.com/dependabot/dependabot-core/issues/11913](https://github.com/dependabot/dependabot-core/issues/11913)
+- [https://github.com/dependabot/dependabot-core/issues/13912](https://github.com/dependabot/dependabot-core/issues/13912)
 
 Based on that, Renovate is the better choice for now.
 
