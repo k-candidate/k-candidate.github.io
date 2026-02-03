@@ -4,10 +4,16 @@ title: About
 permalink: /about/
 ---
 
-Welcome to my personal blog.
+**Hi, I'm k-candidate**
+
+Jack of all trades in Cloud Engineering, On-Prem, SRE, DevSecOps, and FinOps.
+
+**My Journey**
 
 {% assign current_year = 'now' | date: "%Y" %}
 {% assign years_of_experience = current_year | minus: 2017 %}
-I am a Site Reliability Engineer working with DevSecFinOps practices and AWS, with {{years_of_experience}} years of professional experience in the technology sector.
+{{years_of_experience}} years across IT support, operations, and engineering. I optimize costs, build resilient systems, and enable teams.
 
-I mainly use this blog as a place to store my personal notes, technical learnings, and experiments. I hope you find something here that is useful for your own work.
+**Welcome to my personal blog**
+
+This blog captures my technical notes, key learnings, and experiments. Hope you find practical insights for your work!
