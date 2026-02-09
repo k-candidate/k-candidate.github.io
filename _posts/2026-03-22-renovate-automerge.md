@@ -54,9 +54,17 @@ Renovate has some quirks:
 
 ## Results
 
-It's working as expected:
+It's working as expected, e.g.:
 - [https://github.com/k-candidate/selenium-book-search-slack-alerts/pull/35](https://github.com/k-candidate/selenium-book-search-slack-alerts/pull/35)
 - [https://github.com/k-candidate/selenium-book-search-slack-alerts/pull/37](https://github.com/k-candidate/selenium-book-search-slack-alerts/pull/37)
+
+Automerge disabled for major version:
+
+![automerge disabled for major version]({{ site.baseurl }}/assets/images/automerge-01.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
+
+Automerge enabled for non-major version:
+
+![automerge enabled for non major version]({{ site.baseurl }}/assets/images/automerge-02.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
 
 Less toil for me.
 
