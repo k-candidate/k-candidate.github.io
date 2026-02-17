@@ -231,7 +231,7 @@ cosign verify --key cosign.pub localhost:5000/myapp:unsigned
 # Expected: Error: no signatures found
 ```
 
-## Part 2.5: Copying Images to Docker Hub (Production Registry)
+## Part 3: Copying Images to Docker Hub (Production Registry)
 
 Now we'll copy both images from the local registry to Docker Hub, simulating the promotion from CI/CD to production. The signed image will carry its signature with it; the unsigned image will not.
 
@@ -274,7 +274,7 @@ So this proves that the signature was copied alongside the image.
 
 **Key insight**: The signature is cryptographically bound to the image's **digest**, not to the registry host. This means a signature created in `localhost:5000` is still valid when the image is in `docker.io`. This is exactly how production works: sign once in CI, verify everywhere the image runs.
 
-## Part 3: Attestations
+## Part 4: Attestations
 
 An attestation is a signed statement about something. For images, common attestations are:
 - **Vulnerability attestation**: "I scanned this image and found these CVEs"
@@ -376,7 +376,7 @@ cosign verify-attestation --key cosign.pub --type vuln kcandidate/myapp:v1
 
 ![proof that the signed vuln attestation got copied to dockerhub]({{ site.baseurl }}/assets/images/docker-pipeline-part2-11.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
 
-## Part 4: Provenance Attestations
+## Part 5: Provenance Attestations
 
 Provenance describes how an image was built. It's part of SLSA (Supply chain Levels for Software Artifacts), a framework for supply chain security. More info here:
 - [https://openssf.org/projects/slsa/](https://openssf.org/projects/slsa/)
@@ -472,7 +472,7 @@ Provenance lets you answer:
 
 This is important for supply chain attacks.
 
-## Part 4: Combining Everything
+## Part 6: Combining Everything
 
 In production, you'll:
 1. Build the image with provenance
@@ -526,7 +526,7 @@ cosign verify-attestation --key cosign.pub --type slsaprovenance localhost:5000/
 cosign verify-attestation --key cosign.pub --type vuln localhost:5000/myapp:v1 | jq -r '.payload' | base64 -d | jq
 ```
 
-## Part 5: Keyless Signing (OIDC)
+## Part 7: Keyless Signing (OIDC)
 
 For CI/CD, keyless signing is cleaner. Instead of managing private keys, you use your identity provider (GitHub, Google, etc.). But now you have to manage new infrastructure: Rekor and Fulcio.
 
@@ -545,7 +545,7 @@ Keyless signing with OIDC works on **github.com** out of the box. GitHub Actions
 
 So for GitHub Enterprise, unless you've set up your own Sigstore infrastructure (Fulcio + Rekor), keypair signing is the pragmatic choice. The keypair approach works identically on github.com and self-hosted: no OIDC, no transparency logs, just a private key that signs and a public key that verifies.
 
-## Part 6: What Gets Stored Where
+## Part 8: What Gets Stored Where
 
 This is important for understanding what you'll see in your registry:
 
@@ -576,7 +576,7 @@ cosign tree localhost:5000/myapp:v1
 # in a hierarchical view showing the OCI referrer relationships
 ```
 
-## Part 7: Practical Verification Workflows
+## Part 9: Practical Verification Workflows
 
 When someone wants to deploy your image, they should:
 
@@ -617,7 +617,7 @@ echo "All checks passed."
 
 ![verification script]({{ site.baseurl }}/assets/images/docker-pipeline-part2-15.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
 
-## Part 8: Things to Know
+## Part 10: Things to Know
 
 **Digest vs Tag**: I want to hammer home that Signatures and Attestations are tied to the image *digest* (sha256:abc123), not the tag (v1). If you push a new image with the same tag, the old signatures don't apply. This is intentional: tags are mutable, digests are not.
 
@@ -638,7 +638,7 @@ cosign attest --key cosign.key --predicate sbom.json --type spdxjson localhost:5
 
 **Notation vs Cosign**: There's another tool called [Notation](https://github.com/notaryproject/notation) (from the CNCF Notary project). It does similar things to cosign but uses a different format. Cosign is more widely adopted in the cloud-native ecosystem and integrates better with Sigstore/SLSA. I have not played around with notary, and all the comparisons I found were a bit old. Like [this one](https://docs.sigstore.dev/about/faq/#why-not-use-notary-v2) which points to [this medium post](https://dlorenc.medium.com/notary-v2-and-cosign-b816658f044d) from 4 years ago.
 
-## Part 9: Enforcing Image Signatures in Kubernetes with Kyverno
+## Part 11: Enforcing Image Signatures in Kubernetes with Kyverno
 
 I want to make clear here that you can use whichever tool you want. I am going with kyverno.
 
