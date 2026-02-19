@@ -68,6 +68,14 @@ Automerge enabled for non-major version:
 
 Less toil for me.
 
+## Update
+
+I had this running for a week and it is awesome. They key is the tests in the PR required checks.
+
+There's no reason for you as a human to be dealing with this toil. Imagine having to manually update little versions multiple times a day, every day!
+
+![automerge disabled for major version]({{ site.baseurl }}/assets/images/automerge-03.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
+
 ## References
 
 - [https://docs.renovatebot.com/key-concepts/automerge/](https://docs.renovatebot.com/key-concepts/automerge/)

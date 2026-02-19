@@ -5,6 +5,8 @@ date: 2026-04-06 00:00:00-0000
 categories: 
 ---
 
+![imaginary docker pipeline in a forge]({{ site.baseurl }}/assets/images/docker-pipeline-part2-00.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
+
 In this part, I will not work on the pipeline. I will locally explore the complete workflow of container supply chain security: signing images with cosign, creating vulnerability and provenance attestations, and enforcing signature verification in Kubernetes using Kyverno policies.
 
 You can use the files in [https://github.com/k-candidate/understanding-docker-image-signing](https://github.com/k-candidate/understanding-docker-image-signing) to follow along.
