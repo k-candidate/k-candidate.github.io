@@ -54,3 +54,11 @@ opencost:
 ```
 
 Happy kubernetes cost monitoring and saving!
+
+Adding here some issues I read while looking into this. Just breadcrumbs to find the trail ...
+- [https://github.com/opencost/opencost/issues/3227](https://github.com/opencost/opencost/issues/3227)
+- [https://github.com/opencost/opencost/pull/3253](https://github.com/opencost/opencost/pull/3253)
+- [https://github.com/opencost/opencost/issues/2638](https://github.com/opencost/opencost/issues/2638)
+- [https://github.com/opencost/opencost/issues/268](https://github.com/opencost/opencost/issues/268)
+- [https://github.com/opencost/opencost-website/issues/194](https://github.com/opencost/opencost-website/issues/194)
+- [https://github.com/opencost/opencost/issues/2673](https://github.com/opencost/opencost/issues/2673)
