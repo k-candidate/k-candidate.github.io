@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SBOM Viewer - Pyinstaller to Bundle the App into a Single Package"
+title: "SBOM Viewer - PyInstaller to Bundle the App into a Package (Windows, Linux, macOS - x86_64, arm64)"
 date: 2026-05-17 00:00:00-0000
 categories: 
 ---
@@ -74,7 +74,15 @@ But why was it working on my laptop?!?! I was using a cached version of python (
 
 So the solution here is to explicitly bundle the Tcl/Tk shared libraries in the PyInstaller spec. More fighting with the spec file, but I Won't have to depend on nor wait for upstream fixes. So now the packages made by pyinstaller will be using the Tcl/Tk 9 runtime family (`_tkinter` is linked against `libtcl9.0.so` and `libtcl9tk9.0.so`).
 
-CI was able to do all the packaging. I tested Linux x64 and Windows x64 and they both worked. For macOS I still have to set up some infra to be able to test it.
+CI was able to do all the packaging. I verified manually the resulting packages for Linux x64, Windows x64, and MacOS on Intel.
+
+Let's open a parenthesis here on macOS given that it has given me a bit more trouble and I had to pick up some tricks that I did not know. Here's what got it to work: [https://github.com/k-candidate/sbom-viewer/pull/3](https://github.com/k-candidate/sbom-viewer/pull/3).  
+What helped diagnose the issue was `spctl` (Security Policy Control cli utility used to manage Gatekeeper) / `codesign --verify --deep --strict` failing with `a sealed resource is missing or invalid`.  
+There were duplicated physical directories and files in `Contents/Frameworks` and `Contents/Resources`. But in macOS some of those are supposed to be symlinks, not duplicated physical directories. See [https://eclecticlight.co/2025/04/25/what-is-a-bundle-and-how-are-frameworks-different/](https://eclecticlight.co/2025/04/25/what-is-a-bundle-and-how-are-frameworks-different/).  
+What caused the issue? The zip creation was breaking that layout.  
+For macOS we should not package the `.app` with the generic Python zip path. We should use a macOS-native archive command that preserves app bundle metadata and symlinks: `ditto -c -k --sequesterRsrc --keepParent ...`. So now the archive behavior is `ditto` for macOS, `gztar` for Linux, and `zip` for macOS.
+
+Closing parenthesis.
 
 So what's in [https://github.com/k-candidate/sbom-viewer/pull/2](https://github.com/k-candidate/sbom-viewer/pull/2)?
 - `sbom-viewer.spec`
