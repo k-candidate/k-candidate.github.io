@@ -67,3 +67,7 @@ On Ubuntu:
 On Windows:
 
 ![SBOM Viewer on Windows]({{ site.baseurl }}/assets/images/sbom-viewer-post01-04.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
+
+On macOS:
+
+![SBOM Viewer on macOS]({{ site.baseurl }}/assets/images/sbom-viewer-post01-05.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
