@@ -66,7 +66,8 @@ There's nothing to change in `pyinstaller-release-publish.yaml` as the "release.
 
 ## 7. Test
 
-It failed: [https://github.com/k-candidate/sbom-viewer/actions/runs/24057681351/job/70167124722](https://github.com/k-candidate/sbom-viewer/actions/runs/24057681351/job/70167124722)
+It failed: [https://github.com/k-candidate/sbom-viewer/actions/runs/24057681351/job/70167124722](https://github.com/k-candidate/sbom-viewer/actions/runs/24057681351/job/70167124722).  
+And it created this issue which is nice: [https://github.com/k-candidate/sbom-viewer/issues/5](https://github.com/k-candidate/sbom-viewer/issues/5).
 
 `semantic-release` was still trying to push with `github-actions[bot]`. The logs said: `Permission to k-candidate/sbom-viewer.git denied to github-actions[bot]`
 
