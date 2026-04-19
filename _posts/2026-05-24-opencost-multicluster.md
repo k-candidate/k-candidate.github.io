@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "K8s Cost Monitoring - OpenCost - Multi-Cluster Setup"
+title: "K8s Cost Control - OpenCost - Multi-Cluster Setup"
 date: 2026-05-24 00:00:00-0000
 categories: 
 ---
@@ -62,3 +62,6 @@ Adding here some issues I read while looking into this. Just breadcrumbs to find
 - [https://github.com/opencost/opencost/issues/268](https://github.com/opencost/opencost/issues/268)
 - [https://github.com/opencost/opencost-website/issues/194](https://github.com/opencost/opencost-website/issues/194)
 - [https://github.com/opencost/opencost/issues/2673](https://github.com/opencost/opencost/issues/2673)
+
+## Update
+The public documentation has been updated to include this information via [https://github.com/opencost/opencost-website/pull/488](https://github.com/opencost/opencost-website/pull/488).
