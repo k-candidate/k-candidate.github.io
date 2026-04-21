@@ -7,7 +7,7 @@ categories:
 
 In [https://k-candidate.github.io/2026/05/24/opencost-multicluster.html](https://k-candidate.github.io/2026/05/24/opencost-multicluster.html), I talked about OpenCost, which allows to see how much one spends on K8s in a granular way.
 
-Once we have tht information, what to do about it? Well, we have to reduce the cost by right-sizing the resources, and reducing the waste on idle capacity.
+Once we have that information, what to do about it? Well, we have to reduce the cost by right-sizing the resources, and reducing the waste on idle capacity.
 
 This post is about right-sizing. Let's get one thing clear right now: you, the owner or stakeholder, are responsible for testing the recommendations of these tools. "_Trust, but verify_".
 
