@@ -18,3 +18,16 @@ You can get these Distroless Python images from [https://catalog.ngc.nvidia.com/
 They're doing a great job to keep them vulnerability free as the cadence of release is frequent.
 
 ![NVIDIA Distoless Python docker image vulnerability scan via Trivy]({{ site.baseurl }}/assets/images/nvidia-distroless-python-trivy-scan.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
+
+I migrated one of my Python containers to this Distroless variant to have an example of how the Dockerfile would look like.  
+You can see it in this PR: [https://github.com/k-candidate/fastapi-app/pull/3](https://github.com/k-candidate/fastapi-app/pull/3).
+
+![NVIDIA Distoless Python Dockerfile migration example]({{ site.baseurl }}/assets/images/nvidia-distroless-python-dockerfile.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
+
+**<u>This reduced the image size by 35%</u>**: from 73.19MB to 47.33MB
+
+![NVIDIA Distoless Python Docker image size reduction]({{ site.baseurl }}/assets/images/nvidia-distroless-python-size-reduction.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
+
+**<u>Smaller attack surface, less vulnerabilities to patch, smaller disk size footprint, less storage cost, quicker startups as there's less to pull and therefore quicker scale-outs. What's not to like?</u>**
+
+Great success :+1:
