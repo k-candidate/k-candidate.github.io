@@ -1,0 +1,44 @@
+---
+layout: default
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {{ page.date | date: date_format }}
+      </time>
+      {%- if page.author -%}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+      {%- endif -%}</p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <!-- ==================================================== -->
+  <!-- FeedRabbit Redirect                                  -->
+  <!-- ==================================================== -->
+  <div class="subscribe-box" style="margin: 40px 0 20px 0; padding: 24px; background-color: var(--code-background-color, #fdfdfd); border: 1px solid var(--border-color-light, #e8e8e8); border-radius: 4px; text-align: center;">
+    <h3 style="margin-top: 0; margin-bottom: 8px; color: var(--text-color, #111);">Privacy-First Subscription</h3>
+    <p style="font-size: 15px; color: var(--text-color, #666); margin-bottom: 20px; line-height: 1.6; max-width: 500px; margin-left: auto; margin-right: auto;">
+      Receive a notification in your inbox whenever I publish a new post. This is a reader-focused subscription loop built for absolute privacy: you stay in control, and I do not see, track, or collect your email address.
+    </p>
+
+    <a href="https://feedrabbit.com/signup?return_url=%2Fsubscriptions%2Fnew%3Furl%3Dhttps%253A%252F%252Fk-candidate.github.io%252Ffeed.xml" 
+       target="_blank" 
+       style="display: inline-block; padding: 10px 24px; background-color: var(--brand-color, #2a7ae2); color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 15px; font-weight: bold; text-decoration: none; transition: opacity 0.2s;">
+      Follow via FeedRabbit
+    </a>
+  </div>
+  <!-- ==================================================== -->
+
+  {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
