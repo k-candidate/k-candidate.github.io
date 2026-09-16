@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Blog Subscriptions"
+title: "Blog Subscriptions - XML, Atom"
 date: 2026-09-13 00:00:00-0000
 categories: 
 ---
@@ -33,7 +33,7 @@ But I found a tool made by somebody from down under: [Feedrabbit](https://feedra
 
 It's pretty simple. 
 
-But first, you gotta know that my gh pages jekyll blog has a feed: [https://k-candidate.github.io/feed.xml](https://k-candidate.github.io/feed.xml).
+But first, you gotta know that my gh pages jekyll blog has an Atom XML feed: [https://k-candidate.github.io/feed.xml](https://k-candidate.github.io/feed.xml). You can see `type="application/atom+xml"` in there.
 
 The flow is simple:
 1. I write a post
