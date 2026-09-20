@@ -86,7 +86,7 @@ UI (VSCode Jupyter Extension, JupyterLab, or Classic Notebook) --> sends code ce
 
 I personally use `uv`. So I am witing this to suit my workflow.
 
-If I want to run a temporary ad-hoc notebook session to try something quickly,  I just run this: `uvx jupyter lab`.  
+If I want to run a temporary ad-hoc notebook session to try something quickly,  I just run this: `uvx jupyter lab`. And to include dependencies, I run `uvx --with pandas --with matplotlib jupyter lab`.  
 `uvx` fetches JupyterLab into an isolated ephemeral cache, spins up the browser dashboard instantly, and wipes the cached footprint clean when you close the session.
 
 If I want to build a persistent workspace folder with its own isolated virtual environment, I go through the usual flow that I documented in a previous post: [Rustification of Python - uv, ruff, ty - Automating Book Availability Checks](https://k-candidate.github.io/2025/09/01/rustification-of-python-uv-ruff-ty.html). 
