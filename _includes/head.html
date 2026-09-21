@@ -9,4 +9,17 @@
     {%- include google-analytics.html -%}
   {%- endif -%}
   {%- include goatcounter.html -%}
+
+  {% if page.math %}
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+  {% endif %}
+
 </head>
