@@ -11,6 +11,10 @@ This post is to refresh my Jupyer skills and get up to date.
 
 I won't cover all of it. I am interested only in how it fits in my way of working.
 
+## Why Should You Learn Jupyter?
+
+It is the standard tool for all Data Science. And it is also useful in Academia: [https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/](https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/).
+
 ## A Little Bit of History
 
 I like to understand the history of things because it explains why some things are the way they are. Without this context, a lot of architecture or design decisions seem odd.
