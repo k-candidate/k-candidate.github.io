@@ -1,0 +1,53 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@import "minima";
+
+.post-list .post-link {
+  color: #1A4B8C !important;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  
+  &:hover {
+    color: #DE5D3B !important;
+  }
+}
+
+.post-header h1.post-title {
+  color: #1A4B8C !important;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.post-content {
+  h2 {
+    color: #DE5D3B !important;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+  h3 {
+    color: #E68A00 !important;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  h4 {
+    color: #A3527D !important;
+    font-weight: 700;
+  }
+  h5 {
+    color: #3A7D8C !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  h6 {
+    color: #738069 !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+}
