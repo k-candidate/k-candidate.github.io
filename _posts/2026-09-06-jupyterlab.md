@@ -146,13 +146,21 @@ This is a matter of muscle memory...
   - `Ctrl` + `Enter`: Run the active cell and keep focus locked on that exact same cell.
   - `Alt` + `Enter` (or `Option` + `Enter` on Mac): Run the active cell and immediately spawn a brand new cell right below it.
 
+### Python Shell Secrets
+
+Jupyter runs on top of a dynamic interactive Python shell. Here are some features that you probably do not usually use, but that in Jupyter are very handy.
+
+- **The Last Output Linker (`_`)**: A single underscore holds the exact result of your last successfully executed cell. It is perfect for rapid math or grabbing a data frame you forgot to assign to a variable (e.g., if Cell 1 yields `250`, running `_ * 2` outputs `500`).
+- **The Suppress Output Flag (`;`)**: Placing a semicolon at the absolute end of your cell's final line completely suppresses its visual printout. This is highly useful when generating a Matplotlib chart and you want to hide that annoying, ugly text line like `<matplotlib.lines.Line2D at 0x...>` right above your graph.
+- **Dynamic Help Inspection (`?` / `??`)**: Appending a single question mark to any function or library name (e.g., `pd.DataFrame?`) splits your screen to display its formal documentation. Appending two question marks (`pd.DataFrame??`) attempts to pull up and display the raw, underlying Python source code itself.
+
 ### Magic Commands
 
 I did not choose the name. Yes, they called them "magic commands": [https://ipython.readthedocs.io/en/stable/interactive/magics.html](https://ipython.readthedocs.io/en/stable/interactive/magics.html).
 
 These let you control the notebook system or run terminal utilities directly inside a Python cell.
 
-- `%matplotlib inline`: Ensures all graphs, charts, and plots render instantly and cleanly directly beneath your code cells.
+- `%matplotlib inline`: Ensures all graphs, charts, and plots render instantly and cleanly directly beneath your code cells. Modern versions of JupyterLab might do this by default, explicitly adding this to the first cell ensures universal environment compatibility.
 - `%timeit [your statement]`: Runs a specific line of code thousands of times in a micro-second loop to output the exact average processing speed. Great for optimizing slow code.
 - `%%time`: Place this at the absolute top of a cell. When executed, it prints exactly how many seconds or milliseconds the entire cell took to run.
 - `%pwd`: Prints the exact local folder directory path where your notebook is currently saved on your computer.
@@ -176,5 +184,30 @@ Another alternative is to hide the code cells: Select a cell containing code > I
 
 ## Some Useful JupyterLab Extensions
 
-- Coding assistance: [https://github.com/jupyter-lsp/jupyterlab-lsp](https://github.com/jupyter-lsp/jupyterlab-lsp)
+- Coding assistance: [https://github.com/jupyter-lsp/jupyterlab-lsp](https://github.com/jupyter-lsp/jupyterlab-lsp). Remembe to also install [python-lsp-server\[all\]](https://github.com/python-lsp/python-lsp-server) because without it, it would not work in the browser.
 - Git version control directly in the left side panel: [https://github.com/jupyterlab/jupyterlab-git](https://github.com/jupyterlab/jupyterlab-git)
+
+## Displaying Jupyter Lab Notebooks in Web Pages
+
+You can use [https://nbviewer.org/](https://nbviewer.org/) like this:
+
+```html
+<iframe src="https://nbviewer.org/github/k-candidate/blablabla/blob/main/blablabla/blablabla.ipynb" width="100%" height="1500px" style="border:1px solid #ddd;">https://github.com/k-candidate/blablabla/blob/main/blablabla/blablabla.ipynb</iframe>
+```
+
+But, unfortunately, I noticed 2 issues with it:
+- If the notebook it very big, it fails and diplays a 404 instead of your notebook.
+- From time to time, nbviewer.org gets rate limited by GitHub and therefore displays a "503: service unavailable GitHub API rate limit exceeded. Try again soon".
+
+The other way is to use [https://kokes.github.io/nbviewer.js/](https://kokes.github.io/nbviewer.js/) like this:
+
+```html
+<iframe
+  src="https://kokes.github.io/nbviewer.js/viewer.html#base64_of_the_link_to_your_jupyter_notebooj"
+  width="100%"
+  height="1000"
+  style="border:1px solid #ddd; border-radius:6px;"
+  loading="lazy"
+  title="blablabla">
+</iframe>
+```
