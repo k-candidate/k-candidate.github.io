@@ -196,7 +196,7 @@ You can use [https://nbviewer.org/](https://nbviewer.org/) like this:
 ```
 
 But, unfortunately, I noticed 2 issues with it:
-- If the notebook it very big, it fails and diplays a 404 instead of your notebook.
+- If the notebook is very big, it fails and diplays a 404 instead of your notebook.
 - From time to time, nbviewer.org gets rate limited by GitHub and therefore displays a "503: service unavailable GitHub API rate limit exceeded. Try again soon".
 
 The other way is to use [https://kokes.github.io/nbviewer.js/](https://kokes.github.io/nbviewer.js/) like this:
