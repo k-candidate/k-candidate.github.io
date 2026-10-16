@@ -20,7 +20,7 @@ Dataset [here](https://github.com/k-candidate/Machine-Learning-Zoomcamp-2026/blo
   height="1000"
   style="border:1px solid #ddd; border-radius:6px;"
   loading="lazy"
-  title="Jupyter Notebook: 02-homework">
+  title="Jupyter Notebook: 02-notes">
 </iframe>
 
 ## Let's Practice
