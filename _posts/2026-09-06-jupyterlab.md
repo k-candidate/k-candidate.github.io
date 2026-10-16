@@ -211,3 +211,25 @@ The other way is to use [https://kokes.github.io/nbviewer.js/](https://kokes.git
   title="blablabla">
 </iframe>
 ```
+
+Add this to the bottom of your notebook in a markdown cell. It helps with formatting when using `nbviewer.js` (yes for images and code output. But not with errors and terminal commands).
+
+```html
+<style>
+/* 1. Forces wide tables and standard HTML outputs to fit */
+.output_subarea, .output_html, table.dataframe {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    display: block !important;
+}
+
+/* 2. Forces standard stdout code prints, stderr outputs (like wget), 
+      and Python Traceback errors to wrap text safely */
+div.output_area pre, 
+div.output_subarea.output_stream.output_stderr pre, 
+div.output_subarea.output_error pre {
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+}
+</style>
+```
