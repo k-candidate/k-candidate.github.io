@@ -19,3 +19,15 @@ Dataset [here](https://github.com/k-candidate/Machine-Learning-Zoomcamp-2026/blo
   title="Jupyter Notebook: 03-notes">
 </iframe>
 
+## Let's Practice
+
+Dataset [here](https://github.com/k-candidate/Machine-Learning-Zoomcamp-2026/blob/main/03_-_Classification/course_lead_scoring_2026.csv), and notebook [here](https://github.com/k-candidate/Machine-Learning-Zoomcamp-2026/blob/main/03_-_Classification/03-homework.ipynb).
+
+<iframe
+  src="https://kokes.github.io/nbviewer.js/viewer.html#aHR0cHM6Ly9naXRodWIuY29tL2stY2FuZGlkYXRlL01hY2hpbmUtTGVhcm5pbmctWm9vbWNhbXAtMjAyNi9ibG9iL21haW4vMDNfLV9DbGFzc2lmaWNhdGlvbi8wMy1ob21ld29yay5pcHluYgo="
+  width="100%"
+  height="1000"
+  style="border:1px solid #ddd; border-radius:6px;"
+  loading="lazy"
+  title="Jupyter Notebook: 03-homework">
+</iframe>
