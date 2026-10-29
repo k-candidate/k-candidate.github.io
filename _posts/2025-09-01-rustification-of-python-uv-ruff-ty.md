@@ -48,11 +48,12 @@ Here’s the ref: [https://docs.astral.sh/uv/reference/cli/#uv-python-install](h
 There are still some things to work out, like [https://github.com/astral-sh/uv/issues/12989](https://github.com/astral-sh/uv/issues/12989) 
 
 Here’s how my workflow looks like now for a new project:
-```
+```bash
 mkdir some_project
 cd some_project
 uv python pin 3.13 # Creates the .python-version file and installs the interpreter if needed
-uv init # creates pyproject.toml, README.md, .gitignore, and main.py
+uv init --no-package # Non-package mode. creates pyproject.toml, README.md, .gitignore, and main.py
+# uv init # If you are building a distributable python package
 # uv add some_package # adds some_package to pyproject.toml and uv.lock
 # uv add some_package --optional dev # add some_package to the "dev" optional dependencies in pyproject.toml and uv.lock
 uv sync # creates the .venv directory, and installs the dependencies to that venv. But the venv is not activated! Creates the uv.lock file
