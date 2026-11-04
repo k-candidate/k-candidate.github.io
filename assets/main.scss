@@ -50,4 +50,126 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
   }
+
+  // Images in posts open in the shared image viewer. This selector deliberately
+  // scopes the affordance to article content, not navigation or page chrome.
+  img {
+    cursor: zoom-in;
+  }
+}
+
+.image-zoom-overlay {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  opacity: 0;
+  overflow: hidden;
+  position: fixed;
+  transition: opacity 180ms ease;
+  z-index: 10000;
+
+  &[hidden] {
+    display: none;
+  }
+
+  &.is-open {
+    opacity: 1;
+  }
+}
+
+.image-zoom-canvas {
+  cursor: grab;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  touch-action: none;
+  width: 100%;
+
+  &.is-panning {
+    cursor: grabbing;
+  }
+}
+
+.image-zoom-image {
+  display: block;
+  left: 50%;
+  max-height: none;
+  max-width: none;
+  position: absolute;
+  top: 50%;
+  transform-origin: center center;
+  user-select: none;
+  -webkit-user-drag: none;
+  // Use the browser's high-quality resampling for screenshots and diagrams.
+  // `crisp-edges` is intended for pixel art and makes ordinary images grainy.
+  image-rendering: auto;
+}
+
+.image-zoom-controls {
+  display: flex;
+  gap: 0.5rem;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  z-index: 1;
+
+  button {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 0.25rem;
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    font-size: 1.25rem;
+    line-height: 1;
+    min-height: 2.25rem;
+    min-width: 2.25rem;
+  }
+
+  button:hover,
+  button:focus-visible {
+    background: #fff;
+    color: #111;
+  }
+}
+
+.image-zoom-gesture-hint {
+  align-items: center;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 0.25rem;
+  bottom: 1rem;
+  color: #fff;
+  display: flex;
+  font-size: 0.8125rem;
+  gap: 1rem;
+  left: 50%;
+  padding: 0.55rem 0.8rem;
+  position: absolute;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 1;
+
+  b {
+    font-size: 1rem;
+    margin-right: 0.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .image-zoom-gesture-hint {
+    bottom: 0.75rem;
+    font-size: 0.75rem;
+    gap: 0.5rem;
+    max-width: calc(100% - 1.5rem);
+    overflow-x: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-zoom-overlay {
+    transition: none;
+  }
 }
