@@ -4,26 +4,27 @@ title: About
 permalink: /about/
 ---
 
-**Hi, I'm k-candidate**
+**Hi,**
 
-Jack of all trades in Cloud Engineering, On-Prem, SRE, DevSecOps, and FinOps.
+I am a **Product Engineer**: jack of all trades across Cloud Engineering, On-Prem Infra, SRE, DevSecOps, and FinOps.
 
 **My Journey**
 
 {% assign current_year = 'now' | date: "%Y" %}
 {% assign years_of_experience = current_year | minus: 2017 %}
-{{years_of_experience}} years across IT support, operations, and engineering.
+With {{years_of_experience}} years of experience across customer-fcing IT Support, Operations, and Engineering, my focus is on designing reliable systems, improving developer experience, and strengthening delivery pipelines.
 
-Over this time, I’ve focused on designing reliable systems, improving developer experience, and strengthening delivery pipelines. I enable teams by:
-- Designing self-service tools that empower developers and researchers.
-- Implementing infrastructure and configuration as code at scale using modular patterns.
-- Building CI/CD orchestration and establishing golden paths for streamlined delivery.
-- Embedding automated governance and compliance by design, while finding the right balance for innovation and autonomy.
-- Integrating observability as a core part of delivery workflows, not an afterthought.
-- Promoting a security-by-design mindset rather than bolt-on security.
-- Driving automation using Bash and Python to remove repetitive tasks.
-- Optimizing costs through FinOps practices.
+I enable teams to succeed by:
+- **Platform Product Management**: Removing extraneous cognitive load by treating infrastructure as a product and abstracting complex systems.
+- **Self-Service Tooling**: Designing internal tools that empower developers and researchers.
+- **Infrastructure as Code**: Implementing IaC and configuration management at scale using modular patterns.
+- **Streamlined Delivery**: Building CI/CD orchestration and establishing "golden paths" for deployment.
+- **Automated Governance**: Embedding compliance by design while balancing room for innovation and autonomy.
+- **Observability and Security**: Integrating monitoring and security-by-design deeply into the delivery workflow rather than treating them as afterthoughts.
+- **Efficiency**: Driving automation to eliminate repetitive toil
+- **FinOps**: Optimizing cloud spend through FinOps practices.
+- **Cross-Functional Collaboration**: Partnering across teams to bridge technical execution with core business goals.
 
 **Welcome to my personal blog**
 
-This blog captures my technical notes, key learnings, and experiments. My goal is to share insights that help others solve practical engineering challenges.
+This blog captures my technical notes, key learnings, and experiments. My goal is to share insights that help others solve practical engineering challenges, while also serving as a living repository of documentation for my future self.
