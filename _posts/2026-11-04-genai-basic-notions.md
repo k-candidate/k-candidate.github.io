@@ -2,6 +2,7 @@
 layout: post
 title: "GenAI - Basic Notions"
 date: 2026-11-04 00:00:00-0000
+audio: true
 categories: 
 ---
 
@@ -114,4 +115,6 @@ A few days ago I took and passed the GCP Generative AI Leader exam. These are my
 
 ![mind map]({{ site.baseurl }}/assets/images/gen-ai-mindmap.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
 
-This field is constantly evolving. Some of the things you just read might be obsolete in six months. Fall in love with continuous learning. Adaptability is the only tech stack that won't go obsolete.
+## **6. Final Thoughts**
+
+This field is constantly evolving. Some of the things you have just read might be obsolete in six months. Fall in love with continuous learning. Adaptability is the only tech stack that won't go obsolete.

@@ -15,6 +15,17 @@ layout: default
       {%- endif -%}</p>
   </header>
 
+  {%- assign post_audio = site.data.audio.posts[page.path] -%}
+  {%- if page.audio and post_audio -%}
+  <section class="audio-player" aria-label="Listen to this post">
+    <h2 class="audio-player__title">Listen to this post</h2>
+    <audio class="audio-player__control" controls preload="metadata">
+      <source src="{{ post_audio.file | relative_url }}" type="audio/mpeg">
+      <a href="{{ post_audio.file | relative_url }}">Download the audio version of this post.</a>
+    </audio>
+  </section>
+  {%- endif -%}
+
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
   </div>

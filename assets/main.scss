@@ -58,6 +58,28 @@
   }
 }
 
+.audio-player {
+  background: #f4f8fc;
+  border: 1px solid #c8d7e8;
+  border-left: 4px solid #1A4B8C;
+  border-radius: 0.25rem;
+  margin: 0 0 2rem;
+  padding: 1rem 1.25rem;
+}
+
+.audio-player__title {
+  color: #1A4B8C;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.audio-player__control {
+  display: block;
+  margin-top: 0.75rem;
+  max-width: 100%;
+  width: 100%;
+}
+
 .image-zoom-overlay {
   align-items: center;
   background: rgba(0, 0, 0, 0.9);

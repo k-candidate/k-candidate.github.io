@@ -1,0 +1,74 @@
+name: Publish site and audio
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Generate changed audio
+        id: audio
+        continue-on-error: true
+        run: uv run python scripts/generate_audio.py
+
+      - name: Commit generated audio state
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/audio _data/audio.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update generated post audio [skip ci]"
+            git push
+          fi
+
+      - name: Configure Pages
+        if: always()
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Set up Ruby
+        if: always()
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Build site
+        if: always()
+        run: bundle exec jekyll build
+
+      - name: Upload Pages artifact
+        if: always()
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        id: deployment
+        uses: actions/deploy-pages@v4
