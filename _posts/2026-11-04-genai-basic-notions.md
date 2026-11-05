@@ -115,6 +115,14 @@ A few days ago I took and passed the GCP Generative AI Leader exam. These are my
 
 ![mind map]({{ site.baseurl }}/assets/images/gen-ai-mindmap.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
 
-## **6. Final Thoughts**
+***
+
+## **7. Video Summary**
+
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/8BB-SX3k_Zw" frameborder="0" allowfullscreen></iframe>
+
+***
+
+## **8. Final Thoughts**
 
 This field is constantly evolving. Some of the things you have just read might be obsolete in six months. Fall in love with continuous learning. Adaptability is the only tech stack that won't go obsolete.
