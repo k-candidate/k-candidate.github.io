@@ -5,6 +5,12 @@
       "input_hash": "1099953d7e757fa2361334d45a88690b5960e05ea71722fc1b4af471d5013590",
       "rate": "+0%",
       "voice": "en-US-AndrewNeural"
+    },
+    "_posts/2026-11-05-tts.md": {
+      "file": "/assets/audio/77faf44920b7-2026-11-05-tts.mp3",
+      "input_hash": "1e1cadd88f07d9a990dc297e71bbca84c9512405a4142fd93ab3b447af627446",
+      "rate": "+0%",
+      "voice": "en-US-AndrewNeural"
     }
   },
   "version": 1

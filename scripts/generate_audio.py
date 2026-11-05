@@ -64,9 +64,9 @@ def parse_post(path: Path) -> tuple[dict[str, str], str]:
 
 def spoken_text(markdown: str) -> str:
     """Keep readable prose while preserving paragraph breaks and dropping source-code blocks."""
-    # 1. Drop code blocks and inline code
+    # 1. Drop fenced code blocks and inline-code delimiters
     text = re.sub(r"```.*?```", " ", markdown, flags=re.DOTALL)
-    text = re.sub(r"`[^`]*`", " ", text)
+    text = re.sub(r"`([^`]*)`", r"\1", text)
     
     # 2. Drop images and any attached Kramdown/Jekyll attribute blocks like {:style=...}
     text = re.sub(r"!\[([^]]*)\]\([^)]*\)(\{[^}]*\})?", r"\1", text)
@@ -195,8 +195,8 @@ def main() -> int:
 
         print(f"Generating: {relative_path} ({voice}, {rate})")
         # --- DEBUG DUMP ---
-        # Path("debug_payload.txt").write_text(text, encoding="utf-8")
-        # print(f"   [DEBUG] Saved {len(text)} characters to debug_payload.txt")
+        Path("debug_payload.txt").write_text(text, encoding="utf-8")
+        print(f"   [DEBUG] Saved {len(text)} characters to debug_payload.txt")
         # ------------------
         try:
             AUDIO_DIR.mkdir(parents=True, exist_ok=True)
