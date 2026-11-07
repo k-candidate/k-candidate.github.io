@@ -164,6 +164,7 @@ These let you control the notebook system or run terminal utilities directly ins
 - `%matplotlib inline`: Ensures all graphs, charts, and plots render instantly and cleanly directly beneath your code cells. Modern versions of JupyterLab might do this by default, explicitly adding this to the first cell ensures universal environment compatibility.
 - `%timeit [your statement]`: Runs a specific line of code thousands of times in a micro-second loop to output the exact average processing speed. Great for optimizing slow code.
 - `%%time`: Place this at the absolute top of a cell. When executed, it prints exactly how many seconds or milliseconds the entire cell took to run.
+- `%%capture [variable_name]`: Place this at the absolute top of a cell. It silences and captures all printed outputs, stdout, stderr, or rich displays into a variable so you can parse or debug it later (e.g., `%%capture output`). 
 - `%pwd`: Prints the exact local folder directory path where your notebook is currently saved on your computer.
 - `! [terminal command]`: Preceding any line with an exclamation mark allows you to execute raw system terminal commands without leaving the notebook. (e.g., !pip install pandas or !ls).
 
