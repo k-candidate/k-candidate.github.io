@@ -111,18 +111,33 @@ A few days ago I took and passed the GCP Generative AI Leader exam. These are my
 
 ***
 
-## **6. Mind Map**
+## **6. Model Hyperparameters & Control Settings**
+
+* **Temperature:** Controls the degree of randomness/creativity in model responses.
+  * **Low Temperature (0.0 – 0.2):** Produces deterministic, precise, and consistent outputs. Ideal for factual Q&A, code generation, and structured data extraction.
+  * **High Temperature (0.7 – 1.0+):** Produces more creative, varied, and unexpected outputs. Ideal for brainstorming, creative writing, and poetry.
+* **Top-K:** Limits the model's token selection pool to the top *K* most probable next words/tokens. 
+  * A lower Top-K (e.g., 1) forces the model to pick only the single most likely token (greedy decoding).
+* **Top-P (Nucleus Sampling):** Selects tokens from a candidate set whose cumulative probability reaches the threshold *P* (e.g., 0.9 for the top 90% probability mass). 
+  * Top-P dynamically expands or contracts the token choices depending on the model's confidence.
+* **Max Output Tokens:** Sets the hard upper limit on the maximum number of tokens (words/sub-words) the model can generate in a single response.
+* **Stop Sequences:** Specific characters or text strings that instruct the model to stop generating output immediately when encountered.
+* **Safety Settings:** Configurable thresholds (e.g., block few, block many, block none) used to filter out potentially harmful content, such as hate speech, harassment, or explicit material.
+
+***
+
+## **7. Mind Map**
 
 ![mind map]({{ site.baseurl }}/assets/images/gen-ai-mindmap.png){:style="display:block; margin-left:auto; margin-right:auto; width:100.00%"}
 
 ***
 
-## **7. Video Summary**
+## **8. Video Summary**
 
 <iframe width="100%" height="400" src="https://www.youtube.com/embed/8BB-SX3k_Zw" frameborder="0" allowfullscreen></iframe>
 
 ***
 
-## **8. Final Thoughts**
+## **9. Final Thoughts**
 
 This field is constantly evolving. Some of the things you have just read might be obsolete in six months. Fall in love with continuous learning. Adaptability is the only tech stack that won't go obsolete.
