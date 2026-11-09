@@ -201,11 +201,11 @@ But, unfortunately, I noticed 2 issues with it:
 - If the notebook is very big, it fails and diplays a 404 instead of your notebook.
 - From time to time, nbviewer.org gets rate limited by GitHub and therefore displays a "503: service unavailable GitHub API rate limit exceeded. Try again soon".
 
-The other way is to use [https://kokes.github.io/nbviewer.js/](https://kokes.github.io/nbviewer.js/) like this:
+The other way is to use [https://k-candidate.github.io/nbviewer.js/](https://k-candidate.github.io/nbviewer.js/) like this:
 
 ```html
 <iframe
-  src="https://kokes.github.io/nbviewer.js/viewer.html#base64_of_the_link_to_your_jupyter_notebooj"
+  src="https://k-candidate.github.io/nbviewer.js/viewer.html#base64_of_the_link_to_your_jupyter_notebooj"
   width="100%"
   height="1000"
   style="border:1px solid #ddd; border-radius:6px;"

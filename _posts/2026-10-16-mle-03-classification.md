@@ -11,7 +11,7 @@ categories:
 Dataset [here](https://github.com/k-candidate/Machine-Learning-Zoomcamp-2026/blob/main/03_-_Classification/data-week-3.csv), and notes [here](https://github.com/k-candidate/Machine-Learning-Zoomcamp-2026/blob/main/03_-_Classification/03-notes.ipynb).
 
 <iframe
-  src="https://kokes.github.io/nbviewer.js/viewer.html#aHR0cHM6Ly9naXRodWIuY29tL2stY2FuZGlkYXRlL01hY2hpbmUtTGVhcm5pbmctWm9vbWNhbXAtMjAyNi9ibG9iL21haW4vMDNfLV9DbGFzc2lmaWNhdGlvbi8wMy1ub3Rlcy5pcHluYgo="
+  src="https://k-candidate.github.io/nbviewer.js/viewer.html#aHR0cHM6Ly9naXRodWIuY29tL2stY2FuZGlkYXRlL01hY2hpbmUtTGVhcm5pbmctWm9vbWNhbXAtMjAyNi9ibG9iL21haW4vMDNfLV9DbGFzc2lmaWNhdGlvbi8wMy1ub3Rlcy5pcHluYgo="
   width="100%"
   height="1000"
   style="border:1px solid #ddd; border-radius:6px;"
@@ -24,7 +24,7 @@ Dataset [here](https://github.com/k-candidate/Machine-Learning-Zoomcamp-2026/blo
 Dataset [here](https://github.com/k-candidate/Machine-Learning-Zoomcamp-2026/blob/main/03_-_Classification/course_lead_scoring_2026.csv), and notebook [here](https://github.com/k-candidate/Machine-Learning-Zoomcamp-2026/blob/main/03_-_Classification/03-homework.ipynb).
 
 <iframe
-  src="https://kokes.github.io/nbviewer.js/viewer.html#aHR0cHM6Ly9naXRodWIuY29tL2stY2FuZGlkYXRlL01hY2hpbmUtTGVhcm5pbmctWm9vbWNhbXAtMjAyNi9ibG9iL21haW4vMDNfLV9DbGFzc2lmaWNhdGlvbi8wMy1ob21ld29yay5pcHluYgo="
+  src="https://k-candidate.github.io/nbviewer.js/viewer.html#aHR0cHM6Ly9naXRodWIuY29tL2stY2FuZGlkYXRlL01hY2hpbmUtTGVhcm5pbmctWm9vbWNhbXAtMjAyNi9ibG9iL21haW4vMDNfLV9DbGFzc2lmaWNhdGlvbi8wMy1ob21ld29yay5pcHluYgo="
   width="100%"
   height="1000"
   style="border:1px solid #ddd; border-radius:6px;"
