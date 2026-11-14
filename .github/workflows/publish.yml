@@ -62,6 +62,8 @@ jobs:
       - name: Build site
         if: always()
         run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
 
       - name: Upload Pages artifact
         if: always()
