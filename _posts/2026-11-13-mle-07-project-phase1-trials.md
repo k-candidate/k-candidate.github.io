@@ -9,6 +9,18 @@ As part of my ongoing **Machine Learning Engineering** series, I built **Biotech
 
 Rather than duplicating the setup instructions and curl commands already documented in the [GitHub repository](https://github.com/k-candidate/biotech-venture-catalyst), this post highlights the modeling findings, key architectural decisions, and how to navigate the codebase.
 
+## Walkthrough Video
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 1.5rem 0;">
+  <iframe 
+    src="https://www.youtube.com/embed/qqN5eXiKUrU" 
+    title="Biotech Venture Catalyst | Machine Learning Engineering Project Demo"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>
+</div>
+
 ---
 
 ## The Problem & Data Insights
