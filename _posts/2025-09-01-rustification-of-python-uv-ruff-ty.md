@@ -81,6 +81,32 @@ uv sync # if the repo has a pyproject.toml but no uv.lock
 pre-commit install
 ```
 
+### Standalone Scripts (PEP 723 Inline Metadata)
+
+When writing quick automation or utility scripts, setting up a full project with `pyproject.toml`, `uv.lock`, and a `.venv` folder is overkill.  
+Here's how my workflow looks like for standalone scripts using **[PEP 723 inline script metadata](https://peps.python.org/pep-0723/)** paired with a shebang so a single `.py` file manages its own Python interpreter and dependencies.
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# requires-python = "==3.13.*"
+# dependencies = [
+#     "edge-tts",
+# ]
+# ///
+
+import edge_tts
+# ... script logic ...
+```
+
+A few useful commands for working with standalone scripts:
+
+```bash
+chmod +x script.py               # Make it executable so we can run ./script.py directly (or use uv run script.py)
+uv add --script script.py requests  # Adds the dependency directly to the inline `# /// script` block
+uv lock --script script.py       # Generates script.py.lock next to the script; running ./script.py will automatically detect and use it
+```
+
 ## Ruff
 From [https://astral.sh/blog/the-ruff-formatter](https://astral.sh/blog/the-ruff-formatter):
 > TL;DR: The Ruff formatter is an extremely fast Python formatter, written in Rust. It’s over 30x faster than Black and 100x faster than YAPF, formatting large-scale Python projects in milliseconds - all while achieving >99.9% Black compatibility.
