@@ -39,6 +39,8 @@ feed:
   path: feed.xml
   excerpt_only: true
 
+google_analytics: G-NKRQ8TH938
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
