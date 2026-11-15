@@ -70,4 +70,4 @@ If you want to explore the project, here is the recommended order:
 
 ---
 
-*I will publish a separate post diving into how I exported the scikit-learn model to ONNX and ran client-side inference in the browser using WebAssembly (WASM).*
+*I also published a separate post diving into [how I exported the scikit-learn model to ONNX and ran client-side inference in the browser using WebAssembly (WASM)](https://k-candidate.github.io/2026/11/13/onnx-wasm.html).*
