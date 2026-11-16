@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Docker Image Annotations - Manifest of Manifests: Docker Manifest List vs OCI Index"
+title: "One Docker Bake Pipeline to Rule Them All - Part III: Docker Image Annotations; Manifest of Manifests (Docker Manifest List vs OCI Index)"
 date: 2026-07-19 00:00:00-0000
 categories: 
 ---
@@ -112,4 +112,34 @@ Well, it's time to dig into more details. So far we called the top level index t
 The former (Docker Manifest List) does not support annotations.  
 The latter (OCI Index) does. Therefore this is what one should use to have the annotations in all 3 levels.
 
-To make the OCI Index, a few tools can be leveraged, like `regctl index create`: [https://regclient.org/cli/regctl/index/create/](https://regclient.org/cli/regctl/index/create/).
+## Bringing This to the Reusable Pipeline
+
+In our reusable GitHub Actions workflow ([`docker-bake.yaml`](https://github.com/k-candidate/gha-workflows/blob/main/.github/workflows/docker-bake.yaml)), we wanted:
+1. **Centralized enforcement**: Automatically compute the 4 standard annotations (`created`, `source`, `version`, `revision`) from GitHub Actions context and strictly override any values defined in caller bake files.
+2. **Preserve custom metadata**: Keep any custom annotations defined by consuming repositories intact.
+3. **Unified OCI structure**: Give both single-arch and multi-arch images the exact same 3-level structure (OCI Index → Descriptors → Image Manifests).
+4. **Annotations at all 3 levels**: Index, Descriptors, and Image Manifests must all carry the complete annotation set.
+5. **Zero interface changes**: No new inputs or secrets required for callers.
+
+Doing this in practice uncovered a few BuildKit and OCI quirks that required a deliberate design.
+
+### The Problem with Default Tools
+
+First, Buildx bake set syntax (`--set *.annotations=...`) appends to arrays rather than overwriting existing keys, so bake HCL values cannot be overridden cleanly at build time alone. Second, single-arch builds typically skip manifest merging and push a bare 1-level Image Manifest, leaving them without an OCI Index or Descriptors.
+
+Third, and most importantly: **the OCI Digest Ordering Rule**. When you mutate a Level 3 platform Image Manifest to inject annotations, its byte size and SHA256 digest change. If you push the Index first, or attempt to overwrite child manifests via `--platform`, you either break descriptor references or inadvertently overwrite the index tag with a platform manifest.
+
+### The 3-Step Ordering Rule
+
+To solve this, our workflow's `merge` job uses `docker buildx imagetools create --prefer-index=true` to guarantee that an OCI Index is created even for single-arch images, and then leverages `regctl` and `jq` following a strict 3-step order:
+
+1. **Mutate and push Level 3 manifests first**: Pull each platform Image Manifest, apply annotations, calculate its new SHA256 digest and size, and push it by digest (`regctl manifest put --by-digest "$REPO"`).
+2. **Update Level 2 Descriptors and Level 1 Index**: Update each platform descriptor in `.manifests[]` with the new Level 3 `.digest`, `.size`, and `.annotations` (while leaving attestation descriptors intact), and set `.annotations` on the root OCI Index.
+3. **Push the updated OCI Index**: Push the modified index to the target tag (`regctl manifest put "$TAG"`).
+
+Finally, an automated `verify` job queries the registry with `regctl` and asserts that all 4 managed annotations and all custom annotations match across Level 1 (Index), Level 2 (Descriptors), and Level 3 (Image Manifests) for every single-arch, multi-arch, and mixed-arch target.
+
+## Implementation
+
+- Reusable pipeline PR: [https://github.com/k-candidate/gha-workflows/pull/6](https://github.com/k-candidate/gha-workflows/pull/6)
+- Test matrix & consuming repo PR: [https://github.com/k-candidate/gha-test/pull/3](https://github.com/k-candidate/gha-test/pull/3)
